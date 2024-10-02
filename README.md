@@ -63,7 +63,7 @@ The Balsam site is where all your jobs and defined Balsam applications live. Onc
 To do so run: 
 
 ```
-Balsam site init <SITE-PATH>
+balsam site init <SITE-PATH>
 ```
 
 Now give the following inputs to Balsam
