@@ -17,7 +17,7 @@ To load the app, run `python vasp_apps.py`. This will define the app `Electronic
 Once the apps are defined, you can now add jobs using add_aniso_calcs.py. To add new jobs, run:
 
 ```
-add_aniso_calcs.py -s <site_name> --system System1 System2 ... --parents FM AFM1 --kpoints <KPOINTS file> 
+add_aniso_calcs.py -s <site_name> --system System1 System2 ... --parents FM_relax AFM1_relax --kpoints <KPOINTS file> 
 ```
 
  - Replace <site_name> with the name of your balsam site
@@ -26,3 +26,15 @@ add_aniso_calcs.py -s <site_name> --system System1 System2 ... --parents FM AFM1
  - if you want to just use the same kpoints as the parent, replace the --kpoints flag with --keep_parent_kpoints. Otherwise balsam will use the kpoints from the KPOINTS file passed to the kpoints argument
 
 To modify the VASP running parameters, you can set these in add_aniso_calcs. Just change the arguments set in `SCF_incar_overwrite` and `NSCF_incar_overwrite`.
+
+## Workflow Diagram
+
+```mermaid
+graph TD;
+    FM_relax-->ground_CONTCAR;
+    AFM1_relax-->ground_CONTCAR;
+    ground_CONTCAR-->aniso_scf;
+    aniso_scf-->aniso_nscf_x;
+    aniso_scf-->aniso_nscf_y;
+    aniso_scf-->aniso_nscf_z;
+```

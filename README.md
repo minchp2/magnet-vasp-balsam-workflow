@@ -238,3 +238,11 @@ balsam queue submit -n 2 -t 60 -q debug -A MI2Dmaterials --site janus_db --job-m
 You may want to check to see if this is submitted with `balsam queue ls` and `qstat -u $USER`. Note that it takes a couple seconds for balsam to realize that it should submit to the queue. Once the balsam submitter is running you can run `balsam job ls --state RUNNING` to check which jobs are running. I like to use the script `monitor.sh` to be track of the status of the queue with the command `watch ./monitor.sh`
 
 Congradulations, you now have a working balsam site with magnetic calculations in it. To add jobs for more materials you can run `vasp_workflow.py` on the same site.
+
+## Workflow Diagram
+
+```mermaid
+graph TD;
+    initial-->FM_relax;
+    initial-->AFM1_relax;
+```

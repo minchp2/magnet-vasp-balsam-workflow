@@ -19,7 +19,7 @@ To load the apps, run `python siesta_app.py`. This will define the apps `Siesta2
 Once the apps are defined, you can now add jobs using add_siesta_calcs.py. To add new jobs, run:
 
 ```
-add_siesta_calcs.py -s <site_name> --system System1 System2 ... --parents FM AFM1 --kmesh 7 7 1 --kpoints 11 11 1 
+add_siesta_calcs.py -s <site_name> --system System1 System2 ... --parents FM_relax AFM1_relax --kmesh 7 7 1 --kpoints 11 11 1 
 ```
 
  - Replace <site_name> with the name of your balsam site
@@ -33,3 +33,17 @@ add_siesta_calcs.py -s <site_name> --system System1 System2 ... --parents FM AFM
 ## Output
 
 Once these jobs have finished, the output from TB2J can be found in the folder `<data folder>/<system>/TB2J`
+
+## Workflow Diagram
+
+```mermaid
+graph TD;
+    FM_relax-->ground_CONTCAR;
+    AFM1_relax-->ground_CONTCAR;
+    ground_CONTCAR-->siesta_2j_x;
+    ground_CONTCAR-->siesta_2j_y;
+    ground_CONTCAR-->siesta_2j_z;
+    siesta_2j_x-->tb2j;
+    siesta_2j_y-->tb2j;
+    siesta_2j_z-->tb2j;
+```
