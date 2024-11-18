@@ -25,7 +25,7 @@ add_aniso_calcs.py -s <site_name> --system System1 System2 ... --parents FM_rela
  - If you have more than one AFM configuration in the collinear calculations, you can add their names after --parents to add it to the list of configurations that the job considers for picking the ground state. 
  - if you want to just use the same kpoints as the parent, replace the --kpoints flag with --keep_parent_kpoints. Otherwise balsam will use the kpoints from the KPOINTS file passed to the kpoints argument
 
-To modify the VASP running parameters, you can set these in add_aniso_calcs. Just change the arguments set in `SCF_incar_overwrite` and `NSCF_incar_overwrite`.
+To modify the VASP running parameters, you can set these in add_aniso_calcs.py. Just change the arguments set in `SCF_incar_overwrite` and `NSCF_incar_overwrite`.
 
 ## Workflow Diagram
 
